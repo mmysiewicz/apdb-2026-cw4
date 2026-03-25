@@ -109,7 +109,17 @@ public sealed class ZadaniaLinq
     /// </summary>
     public IEnumerable<string> Zadanie05_CzyIstniejeNieaktywneZapisanie()
     {
-        
+        var method = DaneUczelni.Zapisy
+            .Any(z => z.CzyAktywny == false);
+
+        if (method)
+        {
+            return ["True"];
+        }
+        else
+        {
+            return ["False"];
+        }
     }
 
     /// <summary>
@@ -124,7 +134,16 @@ public sealed class ZadaniaLinq
     /// </summary>
     public IEnumerable<string> Zadanie06_CzyWszyscyProwadzacyMajaKatedre()
     {
-        throw Niezaimplementowano(nameof(Zadanie06_CzyWszyscyProwadzacyMajaKatedre));
+        var method = DaneUczelni.Prowadzacy
+            .Count(e => !string.IsNullOrEmpty(e.Katedra));
+        if (method == 0)
+        {
+            return ["1"];
+        }
+        else
+        {
+            return ["0"];
+        }
     }
 
     /// <summary>
