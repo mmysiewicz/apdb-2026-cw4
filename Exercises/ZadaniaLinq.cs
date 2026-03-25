@@ -157,7 +157,10 @@ public sealed class ZadaniaLinq
     /// </summary>
     public IEnumerable<string> Zadanie07_LiczbaAktywnychZapisow()
     {
-        throw Niezaimplementowano(nameof(Zadanie07_LiczbaAktywnychZapisow));
+        var method = DaneUczelni.Zapisy
+            .Count(e => e.CzyAktywny == true);
+
+        return [method.ToString()];
     }
 
     /// <summary>
@@ -171,7 +174,12 @@ public sealed class ZadaniaLinq
     /// </summary>
     public IEnumerable<string> Zadanie08_UnikalneMiastaStudentow()
     {
-        throw Niezaimplementowano(nameof(Zadanie08_UnikalneMiastaStudentow));
+        var method = DaneUczelni.Studenci
+            .Select(e => e.Miasto)
+            .Distinct()
+            .OrderBy(e => e);
+        
+        return method;
     }
 
     /// <summary>
@@ -186,7 +194,12 @@ public sealed class ZadaniaLinq
     /// </summary>
     public IEnumerable<string> Zadanie09_TrzyNajnowszeZapisy()
     {
-        throw Niezaimplementowano(nameof(Zadanie09_TrzyNajnowszeZapisy));
+        var method = DaneUczelni.Zapisy
+            .OrderByDescending(e => e.DataZapisu)
+            .Select(e => $"{e.DataZapisu}, {e.StudentId}, {e.PrzedmiotId}")
+            .Take(3);
+
+        return method;
     }
 
     /// <summary>
@@ -202,7 +215,13 @@ public sealed class ZadaniaLinq
     /// </summary>
     public IEnumerable<string> Zadanie10_DrugaStronaPrzedmiotow()
     {
-        throw Niezaimplementowano(nameof(Zadanie10_DrugaStronaPrzedmiotow));
+        var method = DaneUczelni.Przedmioty
+            .OrderBy(e => e.Nazwa)
+            .Skip(2)
+            .Take(2)
+            .Select(e => $"{e.Nazwa}, {e.Kategoria}");
+        
+        return method;
     }
 
     /// <summary>
@@ -217,7 +236,7 @@ public sealed class ZadaniaLinq
     /// </summary>
     public IEnumerable<string> Zadanie11_PolaczStudentowIZapisy()
     {
-        throw Niezaimplementowano(nameof(Zadanie11_PolaczStudentowIZapisy));
+        
     }
 
     /// <summary>
