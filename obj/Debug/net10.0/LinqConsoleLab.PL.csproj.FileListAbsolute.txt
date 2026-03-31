@@ -1,0 +1,15 @@
+D:\ProgramingProjects\apdb-2026-cw4\bin\Debug\net10.0\LinqConsoleLab.PL.exe
+D:\ProgramingProjects\apdb-2026-cw4\bin\Debug\net10.0\LinqConsoleLab.PL.deps.json
+D:\ProgramingProjects\apdb-2026-cw4\bin\Debug\net10.0\LinqConsoleLab.PL.runtimeconfig.json
+D:\ProgramingProjects\apdb-2026-cw4\bin\Debug\net10.0\LinqConsoleLab.PL.dll
+D:\ProgramingProjects\apdb-2026-cw4\bin\Debug\net10.0\LinqConsoleLab.PL.pdb
+D:\ProgramingProjects\apdb-2026-cw4\obj\Debug\net10.0\LinqConsoleLab.PL.GeneratedMSBuildEditorConfig.editorconfig
+D:\ProgramingProjects\apdb-2026-cw4\obj\Debug\net10.0\LinqConsoleLab.PL.AssemblyInfoInputs.cache
+D:\ProgramingProjects\apdb-2026-cw4\obj\Debug\net10.0\LinqConsoleLab.PL.AssemblyInfo.cs
+D:\ProgramingProjects\apdb-2026-cw4\obj\Debug\net10.0\LinqConsoleLab.PL.csproj.CoreCompileInputs.cache
+D:\ProgramingProjects\apdb-2026-cw4\obj\Debug\net10.0\LinqConsoleLab.PL.sourcelink.json
+D:\ProgramingProjects\apdb-2026-cw4\obj\Debug\net10.0\LinqConsoleLab.PL.dll
+D:\ProgramingProjects\apdb-2026-cw4\obj\Debug\net10.0\refint\LinqConsoleLab.PL.dll
+D:\ProgramingProjects\apdb-2026-cw4\obj\Debug\net10.0\LinqConsoleLab.PL.pdb
+D:\ProgramingProjects\apdb-2026-cw4\obj\Debug\net10.0\LinqConsoleLab.PL.genruntimeconfig.cache
+D:\ProgramingProjects\apdb-2026-cw4\obj\Debug\net10.0\ref\LinqConsoleLab.PL.dll

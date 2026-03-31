@@ -258,7 +258,17 @@ public sealed class ZadaniaLinq
     /// </summary>
     public IEnumerable<string> Zadanie12_ParyStudentPrzedmiot()
     {
-        throw Niezaimplementowano(nameof(Zadanie12_ParyStudentPrzedmiot));
+        var method = DaneUczelni.Zapisy
+            .SelectMany(
+                z => DaneUczelni.Studenci
+                    .Where(s => s.Id == z.StudentId),
+                (z, s) => new {z, s})
+            .SelectMany(
+                zs => DaneUczelni.Przedmioty
+                    .Where(p => p.Id == zs.z.PrzedmiotId),
+                (zs, p) => $"{zs.s.Imie}, {zs.s.Nazwisko}, {p.Nazwa}");
+
+        return method;
     }
 
     /// <summary>
@@ -273,7 +283,15 @@ public sealed class ZadaniaLinq
     /// </summary>
     public IEnumerable<string> Zadanie13_GrupowanieZapisowWedlugPrzedmiotu()
     {
-        throw Niezaimplementowano(nameof(Zadanie13_GrupowanieZapisowWedlugPrzedmiotu));
+        var method = DaneUczelni.Zapisy
+            .Join(DaneUczelni.Przedmioty,
+                z => z.PrzedmiotId,
+                p => p.Id,
+                (z, p) => new { z, p })
+            .GroupBy(zp => zp.p.Nazwa)
+            .Select(e => $"{e.Key}, {e.Count()}");
+        
+        return method;
     }
 
     /// <summary>
@@ -290,7 +308,16 @@ public sealed class ZadaniaLinq
     /// </summary>
     public IEnumerable<string> Zadanie14_SredniaOcenaNaPrzedmiot()
     {
-        throw Niezaimplementowano(nameof(Zadanie14_SredniaOcenaNaPrzedmiot));
+        var method = DaneUczelni.Zapisy
+            .Join(DaneUczelni.Przedmioty,
+                z => z.PrzedmiotId,
+                p => p.Id,
+                (z, p) => new { z, p })
+            .Where(zp => zp.z.OcenaKoncowa != null)
+            .GroupBy(zp => zp.p.Nazwa)
+            .Select(e => $"{e.Key}, {e.Average(zp => zp.z.OcenaKoncowa)}");
+        
+        return method;
     }
 
     /// <summary>
