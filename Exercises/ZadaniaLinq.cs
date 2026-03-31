@@ -447,8 +447,7 @@ public sealed class ZadaniaLinq
     /// </summary>
     public IEnumerable<string> Wyzwanie03_ProwadzacyISredniaOcenNaIchPrzedmiotach()
     {
-        var method = DaneUczelni.Prowadzacy
-            
+        throw Niezaimplementowano(nameof(Wyzwanie03_ProwadzacyISredniaOcenNaIchPrzedmiotach));
     }
 
     /// <summary>
@@ -466,7 +465,18 @@ public sealed class ZadaniaLinq
     /// </summary>
     public IEnumerable<string> Wyzwanie04_MiastaILiczbaAktywnychZapisow()
     {
-        throw Niezaimplementowano(nameof(Wyzwanie04_MiastaILiczbaAktywnychZapisow));
+        
+        var method =  DaneUczelni.Studenci
+            .Join(DaneUczelni.Zapisy,
+                s => s.Id,
+                z => z.StudentId,
+                (s, z) => new { s, z })
+            .Where(sz => sz.z.CzyAktywny)
+            .GroupBy( sz => sz.s.Miasto)
+            .OrderByDescending(e => e.Count())
+            .Select(e => $"{e.Key}, {e.Count()}");
+            
+        return method;
     }
 
     private static NotImplementedException Niezaimplementowano(string nazwaMetody)
