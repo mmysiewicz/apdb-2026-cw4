@@ -333,7 +333,18 @@ public sealed class ZadaniaLinq
     /// </summary>
     public IEnumerable<string> Zadanie15_ProwadzacyILiczbaPrzedmiotow()
     {
-        throw Niezaimplementowano(nameof(Zadanie15_ProwadzacyILiczbaPrzedmiotow));
+        var method = DaneUczelni.Prowadzacy
+            .SelectMany(
+                pr => DaneUczelni.Przedmioty
+                    .Where(p => p.ProwadzacyId == pr.Id)
+                    .DefaultIfEmpty(),
+                (pr, p) => new { pr, p })
+            .GroupBy(
+                e => new { e.pr.Imie, e.pr.Nazwisko },
+                e => e.p)
+            .Select(e => $"{e.Key.Imie}, {e.Key.Nazwisko}, {e.Count(v => v != null)}");
+        
+        return method;
     }
 
     /// <summary>
